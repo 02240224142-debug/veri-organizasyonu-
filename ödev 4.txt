@@ -1,0 +1,49 @@
+B ve B+ AĞAÇLARININ KULLANIM ALANLARI
+
+1. GÜNLÜK HAYATTAN ÖRNEK: KÜTÜPHANE SİSTEMİ
+
+B-Tree: Her rafta hem kitap hem yer bilgisi var. Doğrudan rafa gidersin.
+B+ Tree: Katalog sadece yönlendirir. Kitaplar en alttaki raflarda sıralıdır. 
+Aralık sorguları (örnek: 100-200 arası kitaplar) çok hızlıdır.
+
+Faydası: Binlerce kitap arasında 3-4 adımda istenen kitaba ulaşılır.
+
+2. VERİ TABANLARINDA KULLANIM
+
+MySQL: InnoDB'de birincil anahtar indeksleri B+ Tree kullanır.
+PostgreSQL: Varsayılan indeks türü B-Tree'dir.
+MongoDB: Varsayılan indeks türü B-Tree'dir.
+
+3. DOSYA SİSTEMLERİNDE KULLANIM
+
+NTFS (Windows): B+ Tree ile dosya indeksleme
+ext4 (Linux): B-Tree türevi HTree kullanır
+HFS+ (macOS): B-Tree ile dosya arama
+
+4. ARAMA MOTORLARI VE BÜYÜK VERİ
+
+Elasticsearch: Filtreleme için B-Tree tabanlı indeksler
+Cassandra: Secondary index'ler B-Tree kullanır
+Google BigTable: B-Tree mantığıyla çalışır
+
+5. NEDEN MODERN SİSTEMLERDE TERCİH EDİLİR?
+
+- Az disk okuma ile hızlı erişim
+- Range sorgularında çok başarılı
+- Ekleme/silme işlemlerinde dengeli performans
+- Bellek ve disk alanını verimli kullanır
+
+6. SORULAR
+
+Soru 1: Bu veri yapıları neden önemlidir?
+Cevap: Disk erişimini minimuma indirir. Milyarlarca veri içinde 3-4 disk okumayla arama yaparlar.
+
+Soru 2: Büyük veri çağında neden ihtiyaç duyulur?
+Cevap: Petabaytlarca veri arasında milisaniyeler içinde sorgu yapabilmek için.
+
+Soru 3: Gelecekte kullanılacak mı?
+Cevap: Evet, en az 10-20 yıl daha kullanılmaya devam edecek. Basit, güvenilir ve hızlıdırlar. LSM ağaçları gibi yeni yapılar bazı alanlarda öne çıksa da B ve B+ ağaçları vazgeçilmezdir.
+
+7. SONUÇ
+
+B ve B+ ağaçları, veri tabanlarından dosya sistemlerine kadar birçok alanda hala en yaygın indeks yapısıdır.
